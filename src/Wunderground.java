@@ -15,10 +15,16 @@ import java.net.URL;
  */
 public class Wunderground {
 
+    /* Gets location info of user and prints their hourly weather forecast
+     * pre-condition: true
+     * post-condition: prints user location information and hourly weather forecast
+     */
     public void weatherInfo(){
+
+        //given the multiplicity of connections and readers, we wrap everything in a try clause to make code readable and debuggable
         try {
-            //we'll get the json data from the url and stick its head into the inputSteam for reading
-            URL url = new URL("http://api.wunderground.com/api/588b3bd34a976916/geolookup/q/19104.json");
+            //we'll get the json data from the url (using autoip) and stick its head into the inputSteam for reading
+            URL url = new URL("http://api.wunderground.com/api/588b3bd34a976916/geolookup/q/autoip.json");
             HttpURLConnection connection = (HttpURLConnection) url.openConnection();
             InputStream inputStream = connection.getInputStream();
 
@@ -27,11 +33,12 @@ public class Wunderground {
             String contents = "";
             String line = "";
             while( (line = buffer.readLine()) != null) {
-                contents += line;
+                contents += line; //populate $contents from the buffer
             }
 
             //we parse the contents of the string to a json object for processing
-            JSONObject jsonObject = new JSONObject(contents);
+            JSONObject jsonObject = new JSONObject(contents); //the root json object
+            System.out.println(jsonObject.toString());
             JSONObject location = jsonObject.getJSONObject("location"); //the specific object we need
 
             //we'll use these two guys later for hourly forecast
@@ -62,8 +69,8 @@ public class Wunderground {
             }
 
             //we parse the contents to a our json object for processing
-            JSONObject hourlyObject = new JSONObject(contents);
-            JSONArray forecastArray = hourlyObject.getJSONArray("hourly_forecast");
+            JSONObject hourlyObject = new JSONObject(contents); //root json object
+            JSONArray forecastArray = hourlyObject.getJSONArray("hourly_forecast"); //specific one we need
 
             //we loop through our array and do some pretty printing of hourly weather information
             for(int i =0; i < forecastArray.length(); i++) {
@@ -78,9 +85,9 @@ public class Wunderground {
             }
 
         } catch (MalformedURLException rat) {
-            rat.printStackTrace(); //I see you
+            rat.printStackTrace(); //bad url or query
         } 
-        catch (Exception rat) {
+        catch (Exception rat) { //all other exceptions including io
             rat.printStackTrace();
         }
     }

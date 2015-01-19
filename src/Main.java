@@ -1,5 +1,7 @@
 
-
+/*
+this is the program conductor, instantiates the Warmup and Wunderground classes
+ */
 public class Main {
 
     public static void main(String[] args) {

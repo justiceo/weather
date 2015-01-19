@@ -11,8 +11,16 @@ import java.net.URL;
  * Created by justiceogbonna on 1/12/15.
  * ps622@drexel - some guy I did this with, or kinda watched me do it.
  */
+
+/* Warm up program to test downloading information from url:
+ *
+ */
 public class Warmup {
 
+    /* Downloads contents from a url and prints it
+     * @pre-condition: true
+     * @post-condition: homework page is printed on screen
+     */
     public void turnUpTheHeat() {
         try {
 
@@ -25,11 +33,14 @@ public class Warmup {
             BufferedReader buffer = new BufferedReader(new InputStreamReader(inputStream));
             String line = "";
             while( (line = buffer.readLine()) != null)
-               System.out.println(line); // prints the line ....duhh, uhm sorry :)
+               System.out.println(line); // prints the content of the url, uhm sorry :)
 
-        } catch (MalformedURLException rat) {
-            rat.printStackTrace(); //for finding the bug
         }
+        //catch url exception for errors
+        catch (MalformedURLException rat) {
+            rat.printStackTrace();
+        }
+        //all other exceptions for debugging purposes
         catch (Exception rat) {
             rat.printStackTrace();
         }
