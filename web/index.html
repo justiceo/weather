@@ -81,9 +81,15 @@
     <script>
         var weatherApp = angular.module('weatherApp', []);
         weatherApp.controller('WeatherCtrl', function ($scope, $http){
-            $http.get('http://art.cs.drexel.edu/~ejo36/countries.json').success(function(data) {
-                $scope.countries = data;
+            $http.get({
+                url:'http://api.wunderground.com/api/588b3bd34a976916/geolookup/conditions/q/19104.json',
+                dataType : "jsonp"
+            }).success(function(data) {
+                $scope.city = data['location']['city'];
                 console.log(data);
+            }).error(function(data, status){
+                $scope.status = status;
+                console.log("error status " + status);
             })
 
             $scope.firstName = 'John';
