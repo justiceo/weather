@@ -38,7 +38,6 @@ public class Wunderground {
 
             //we parse the contents of the string to a json object for processing
             JSONObject jsonObject = new JSONObject(contents); //the root json object
-            System.out.println(jsonObject.toString());
             JSONObject location = jsonObject.getJSONObject("location"); //the specific object we need
 
             //we'll use these two guys later for hourly forecast

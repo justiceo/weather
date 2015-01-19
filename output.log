@@ -1,0 +1,310 @@
+"C:\Program Files\Java\jdk1.7.0_45\bin\java" -Didea.launcher.port=7532 "-Didea.launcher.bin.path=C:\Program Files (x86)\JetBrains\IntelliJ IDEA 13.1.4\bin" -Dfile.encoding=UTF-8 -classpath "C:\Program Files\Java\jdk1.7.0_45\jre\lib\charsets.jar;C:\Program Files\Java\jdk1.7.0_45\jre\lib\deploy.jar;C:\Program Files\Java\jdk1.7.0_45\jre\lib\javaws.jar;C:\Program Files\Java\jdk1.7.0_45\jre\lib\jce.jar;C:\Program Files\Java\jdk1.7.0_45\jre\lib\jfr.jar;C:\Program Files\Java\jdk1.7.0_45\jre\lib\jfxrt.jar;C:\Program Files\Java\jdk1.7.0_45\jre\lib\jsse.jar;C:\Program Files\Java\jdk1.7.0_45\jre\lib\management-agent.jar;C:\Program Files\Java\jdk1.7.0_45\jre\lib\plugin.jar;C:\Program Files\Java\jdk1.7.0_45\jre\lib\resources.jar;C:\Program Files\Java\jdk1.7.0_45\jre\lib\rt.jar;C:\Program Files\Java\jdk1.7.0_45\jre\lib\ext\access-bridge-64.jar;C:\Program Files\Java\jdk1.7.0_45\jre\lib\ext\dnsns.jar;C:\Program Files\Java\jdk1.7.0_45\jre\lib\ext\jaccess.jar;C:\Program Files\Java\jdk1.7.0_45\jre\lib\ext\localedata.jar;C:\Program Files\Java\jdk1.7.0_45\jre\lib\ext\mysql-connector-java-5.1.33-bin.jar;C:\Program Files\Java\jdk1.7.0_45\jre\lib\ext\sunec.jar;C:\Program Files\Java\jdk1.7.0_45\jre\lib\ext\sunjce_provider.jar;C:\Program Files\Java\jdk1.7.0_45\jre\lib\ext\sunmscapi.jar;C:\Program Files\Java\jdk1.7.0_45\jre\lib\ext\zipfs.jar;D:\workspace3\lab1-CS275\out\production\lab1-CS275;D:\workspace3\lab1-CS275\java-json.jar;C:\Program Files (x86)\JetBrains\IntelliJ IDEA 13.1.4\lib\idea_rt.jar" com.intellij.rt.execution.application.AppMain Main
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head></head><body><h1>Web and Mobile App Development</h1>
+<h2>Web Service Clients</h2>
+<p>In class, we discussed writing web service clients using a variety of
+authentication methods and HTTP libraries.&nbsp; In this lab, you will write
+a program to invoke a web service and parse its JSON response.</p>
+
+<h2>What To Do</h2>
+<ol>
+	<li>As a warmup exercise, write a program that uses the Java HttpConnection library to download this lab page URL and print the HTML to the screen.</li>
+	<li>Create a project in Eclipse, Maven, or your choice of platform (or manually).</li>
+	<li>Use the Weather Underground (<a href="http://www.wunderground.com/">http://www.wunderground.com/</a>) API (<a href="http://www.wunderground.com/weather/api/">http://www.wunderground.com/weather/api/</a>) to obtain your current geographic information like city and state.  This is done using the Weather Underground geolookup feature (<a href="http://www.wunderground.com/weather/api/d/docs?d=data/geolookup">http://www.wunderground.com/weather/api/d/docs?d=data/geolookup</a>).  Print out the user's zip code, city and state, or lat and long.</li>
+	<li>Once you have the city/state, lat/long, or zip code, query Weather Underground again, but this time for their hourly forecast.  Use the Weather Underground API documentation to find a reference for this.  Print a line for each hour that you find in the forecast, which should contain at least the date and hour, the current conditions (i.e., "Clear"), temperature, and relative humidity.</li>
+</ol>
+
+<h2>For 20% Extra Credit</h2>
+	For extra credit, implement your web service client on a web page and using the autocomplete API to finish typing in your weather query in an HTML text box.
+	<ol>
+	<li>First, observe that you can put your web service client call on a web page by executing it via JavaScript (specifically, these examples use the JavaScript library jQuery).  See <a href="http://www.wunderground.com/weather/api/d/docs?d=resources/code-samples">http://www.wunderground.com/weather/api/d/docs?d=resources/code-samples</a> for an example of how to do this with Weather Underground.  Try it on a web page of your own!</li>
+	<li>See this JavaScript (jQuery) example <a href="http://jqueryui.com/autocomplete/">http://jqueryui.com/autocomplete/</a> showing how to create a web page that uses the jQuery library to create an auto-complete text box that searches an array of strings.  On a separate web page, try this!</li>
+	<li>Combine the two examples above to create a web page that invokes the Weather Underground auto-complete API, which searches its database for possible auto-complete words given part of a query.  <i>Hint</i>: how can you get the result from Weather Underground into an array variable in your JavaScript?  You will know this works if, when I type <tt>San F</tt>, I will get a box underneath that might include the words <tt>San Francisco</tt>.  See here <a href="http://www.wunderground.com/weather/api/d/docs?d=autocomplete-api">http://www.wunderground.com/weather/api/d/docs?d=autocomplete-api</a> for details on how to use the Weather Underground auto-complete API.
+	</ol>
+</ol>
+
+With all assignments, you should submit:<br><ul><li>Your code</li><li>A&nbsp;README
+with a description of your design, implementation, and instructions, as
+well as the names and Drexel ID's (i.e. wmm24) of all participants</li><li>A screencast video detailing a thorough code reivew of your project, deployment, testing and usage</li></ul>
+
+<h1>Grading (50 Points)</h1>
+<p>35 Points: Program correctness<br>15 Points: Program documentation and code
+style (5), readme (5), and screencast (5). </p>
+
+<script type="text/javascript">
+var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
+<script type="text/javascript">
+var pageTracker = _gat._getTracker("UA-24052857-1");
+pageTracker._trackPageview();
+</script>
+</body></html>
+
+
+===============================================================
+=========================== PART TWO ==========================
+===============================================================
+
+
+You are in -
+	 city: Philadelphia
+	 state: PA
+	 zip: 19019
+	 latitude: 40.11690903
+	 longitude: -75.01428223
+=============================================
+
+
+5:00 PM EST on January 19, 2015
+	 condition: Mostly Cloudy
+	 temperature: 39F
+	 feels like: 33F
+	 snow: 0.0
+	 relative humidity: 52
+
+6:00 PM EST on January 19, 2015
+	 condition: Partly Cloudy
+	 temperature: 37F
+	 feels like: 31F
+	 snow: 0.0
+	 relative humidity: 56
+
+7:00 PM EST on January 19, 2015
+	 condition: Partly Cloudy
+	 temperature: 36F
+	 feels like: 29F
+	 snow: 0.0
+	 relative humidity: 57
+
+8:00 PM EST on January 19, 2015
+	 condition: Partly Cloudy
+	 temperature: 35F
+	 feels like: 29F
+	 snow: 0.0
+	 relative humidity: 60
+
+9:00 PM EST on January 19, 2015
+	 condition: Clear
+	 temperature: 34F
+	 feels like: 28F
+	 snow: 0.0
+	 relative humidity: 62
+
+10:00 PM EST on January 19, 2015
+	 condition: Clear
+	 temperature: 32F
+	 feels like: 26F
+	 snow: 0.0
+	 relative humidity: 66
+
+11:00 PM EST on January 19, 2015
+	 condition: Partly Cloudy
+	 temperature: 32F
+	 feels like: 26F
+	 snow: 0.0
+	 relative humidity: 67
+
+12:00 AM EST on January 20, 2015
+	 condition: Partly Cloudy
+	 temperature: 32F
+	 feels like: 27F
+	 snow: 0.0
+	 relative humidity: 69
+
+1:00 AM EST on January 20, 2015
+	 condition: Partly Cloudy
+	 temperature: 32F
+	 feels like: 27F
+	 snow: 0.0
+	 relative humidity: 70
+
+2:00 AM EST on January 20, 2015
+	 condition: Clear
+	 temperature: 32F
+	 feels like: 27F
+	 snow: 0.0
+	 relative humidity: 70
+
+3:00 AM EST on January 20, 2015
+	 condition: Clear
+	 temperature: 32F
+	 feels like: 27F
+	 snow: 0.0
+	 relative humidity: 70
+
+4:00 AM EST on January 20, 2015
+	 condition: Clear
+	 temperature: 32F
+	 feels like: 27F
+	 snow: 0.0
+	 relative humidity: 70
+
+5:00 AM EST on January 20, 2015
+	 condition: Clear
+	 temperature: 32F
+	 feels like: 27F
+	 snow: 0.0
+	 relative humidity: 68
+
+6:00 AM EST on January 20, 2015
+	 condition: Clear
+	 temperature: 32F
+	 feels like: 27F
+	 snow: 0.0
+	 relative humidity: 69
+
+7:00 AM EST on January 20, 2015
+	 condition: Partly Cloudy
+	 temperature: 32F
+	 feels like: 28F
+	 snow: 0.0
+	 relative humidity: 72
+
+8:00 AM EST on January 20, 2015
+	 condition: Partly Cloudy
+	 temperature: 32F
+	 feels like: 28F
+	 snow: 0.0
+	 relative humidity: 72
+
+9:00 AM EST on January 20, 2015
+	 condition: Partly Cloudy
+	 temperature: 34F
+	 feels like: 30F
+	 snow: 0.0
+	 relative humidity: 68
+
+10:00 AM EST on January 20, 2015
+	 condition: Partly Cloudy
+	 temperature: 36F
+	 feels like: 31F
+	 snow: 0.0
+	 relative humidity: 63
+
+11:00 AM EST on January 20, 2015
+	 condition: Partly Cloudy
+	 temperature: 37F
+	 feels like: 32F
+	 snow: 0.0
+	 relative humidity: 58
+
+12:00 PM EST on January 20, 2015
+	 condition: Partly Cloudy
+	 temperature: 39F
+	 feels like: 34F
+	 snow: 0.0
+	 relative humidity: 53
+
+1:00 PM EST on January 20, 2015
+	 condition: Partly Cloudy
+	 temperature: 40F
+	 feels like: 34F
+	 snow: 0.0
+	 relative humidity: 51
+
+2:00 PM EST on January 20, 2015
+	 condition: Partly Cloudy
+	 temperature: 41F
+	 feels like: 36F
+	 snow: 0.0
+	 relative humidity: 51
+
+3:00 PM EST on January 20, 2015
+	 condition: Mostly Cloudy
+	 temperature: 41F
+	 feels like: 36F
+	 snow: 0.0
+	 relative humidity: 51
+
+4:00 PM EST on January 20, 2015
+	 condition: Mostly Cloudy
+	 temperature: 40F
+	 feels like: 35F
+	 snow: 0.0
+	 relative humidity: 55
+
+5:00 PM EST on January 20, 2015
+	 condition: Partly Cloudy
+	 temperature: 38F
+	 feels like: 34F
+	 snow: 0.0
+	 relative humidity: 58
+
+6:00 PM EST on January 20, 2015
+	 condition: Partly Cloudy
+	 temperature: 36F
+	 feels like: 31F
+	 snow: 0.0
+	 relative humidity: 60
+
+7:00 PM EST on January 20, 2015
+	 condition: Partly Cloudy
+	 temperature: 35F
+	 feels like: 31F
+	 snow: 0.0
+	 relative humidity: 58
+
+8:00 PM EST on January 20, 2015
+	 condition: Partly Cloudy
+	 temperature: 35F
+	 feels like: 31F
+	 snow: 0.0
+	 relative humidity: 60
+
+9:00 PM EST on January 20, 2015
+	 condition: Clear
+	 temperature: 34F
+	 feels like: 30F
+	 snow: 0.0
+	 relative humidity: 59
+
+10:00 PM EST on January 20, 2015
+	 condition: Clear
+	 temperature: 32F
+	 feels like: 28F
+	 snow: 0.0
+	 relative humidity: 59
+
+11:00 PM EST on January 20, 2015
+	 condition: Clear
+	 temperature: 31F
+	 feels like: 31F
+	 snow: 0.0
+	 relative humidity: 61
+
+12:00 AM EST on January 21, 2015
+	 condition: Clear
+	 temperature: 31F
+	 feels like: 31F
+	 snow: 0.0
+	 relative humidity: 61
+
+1:00 AM EST on January 21, 2015
+	 condition: Clear
+	 temperature: 30F
+	 feels like: 30F
+	 snow: 0.0
+	 relative humidity: 61
+
+2:00 AM EST on January 21, 2015
+	 condition: Clear
+	 temperature: 30F
+	 feels like: 30F
+	 snow: 0.0
+	 relative humidity: 61
+
+3:00 AM EST on January 21, 2015
+	 condition: Clear
+	 temperature: 29F
+	 feels like: 29F
+	 snow: 0.0
+	 relative humidity: 61
+
+4:00 AM EST on January 21, 2015
+	 condition: Partly Cloudy
+	 temperature: 29F
+	 feels like: 24F
+	 snow: 0.0
+	 relative humidity: 59
+Process finished with exit code 0
