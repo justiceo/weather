@@ -14,53 +14,60 @@ import java.net.URL;
  * Created by Justice on 1/12/2015.
  */
 public class Wunderground {
-    private static String city = "";
-    private static String zip = "";
-    private static String state = "";
-    private static String lat = "";
-    private static String longt = "";
 
-    public void getWeatherInfo(){
+    public void weatherInfo(){
         try {
-
+            //we'll get the json data from the url and stick its head into the inputSteam for reading
             URL url = new URL("http://api.wunderground.com/api/588b3bd34a976916/geolookup/q/19104.json");
             HttpURLConnection connection = (HttpURLConnection) url.openConnection();
-            connection.connect();
-
             InputStream inputStream = connection.getInputStream();
 
+            //we'll then read from the inputStream and stuff into a string called contents
             BufferedReader buffer = new BufferedReader(new InputStreamReader(inputStream));
-            String strBuffer = "";
+            String contents = "";
             String line = "";
             while( (line = buffer.readLine()) != null) {
-                strBuffer += line;
+                contents += line;
             }
 
-            JSONObject jsonObject = new JSONObject(strBuffer);
-            JSONObject location = jsonObject.getJSONObject("location");
-            city = location.get("city").toString();
-            state = location.get("state").toString();
-            lat = location.get("lat").toString();
-            longt = location.get("lon").toString();
-            zip = location.get("zip").toString();
+            //we parse the contents of the string to a json object for processing
+            JSONObject jsonObject = new JSONObject(contents);
+            JSONObject location = jsonObject.getJSONObject("location"); //the specific object we need
 
-            System.out.printf("\nYou are in - \n\t city: %s \n\t state: %s \n\t zip: %s \n\t latitude: %s \n\t longitude: %s", city, state, zip, lat, longt);
+            //we'll use these two guys later for hourly forecast
+            String state = location.get("state").toString();
+            String zip = location.get("zip").toString();
 
-            System.out.println("\n========================================================");
+            //gives a pretty nice output about location information
+            System.out.printf("\nYou are in - \n\t city: %s \n\t state: %s \n\t zip: %s \n\t latitude: %s \n\t longitude: %s",
+                    location.get("city").toString(),
+                    state,
+                    zip,
+                    location.get("lat").toString(),
+                    location.get("lon").toString());
 
-            URL hourly_url = new URL("http://api.wunderground.com/api/588b3bd34a976916/hourly/q/" + state + "/" + zip + ".json");
-            connection = (HttpURLConnection) hourly_url.openConnection();
+            //marking boundaries
+            System.out.println("\n=============================================");
+
+            //using the state & zip, we construct a new url, download it and stick its head into the inputStream
+            URL hourlyUrl = new URL("http://api.wunderground.com/api/588b3bd34a976916/hourly/q/" + state + "/" + zip + ".json");
+            connection = (HttpURLConnection) hourlyUrl.openConnection();
             inputStream = connection.getInputStream();
+
+            //again, we suck the contents of the inputStream and stuff into a string for future use
             buffer = new BufferedReader(new InputStreamReader(inputStream));
-            strBuffer = "";
+            contents = "";
             while ( (line = buffer.readLine()) != null) {
-                strBuffer += "\n" + line;
+                contents += "\n" + line;
             }
 
-            JSONObject hourly = new JSONObject(strBuffer);
-            JSONArray forecast = hourly.getJSONArray("hourly_forecast");
-            for(int i =0; i < forecast.length(); i++) {
-                JSONObject hour = (JSONObject) forecast.get(i);
+            //we parse the contents to a our json object for processing
+            JSONObject hourlyObject = new JSONObject(contents);
+            JSONArray forecastArray = hourlyObject.getJSONArray("hourly_forecast");
+
+            //we loop through our array and do some pretty printing of hourly weather information
+            for(int i =0; i < forecastArray.length(); i++) {
+                JSONObject hour = (JSONObject) forecastArray.get(i);
                 System.out.printf("\n\n%s \n\t condition: %s \n\t temperature: %sF \n\t feels like: %sF \n\t snow: %s \n\t relative humidity: %s ",
                         hour.getJSONObject("FCTTIME").get("pretty"),
                         hour.get("condition"),
@@ -70,11 +77,11 @@ public class Wunderground {
                         hour.get("humidity"));
             }
 
-        } catch (MalformedURLException e) {
-            e.printStackTrace();
+        } catch (MalformedURLException rat) {
+            rat.printStackTrace(); //I see you
         } 
-        catch (Exception e) {
-            e.printStackTrace();
+        catch (Exception rat) {
+            rat.printStackTrace();
         }
     }
 }

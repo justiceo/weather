@@ -1,0 +1,13 @@
+Participants -
+Justice Ogbonna - ejo36@drexel.edu
+Pedro           - ps622@drexel (warmup only)
+
+There are three classes -
+1) Main - control center of program, the conductor
+2) Warmup - contains the warm up exercise, kinda pre-gaming
+3) Wunderground - contains the application to get and print user location and then hourly forecast - the actual game
+
+- The design is unsophisticated
+- well commented to make an easy read
+- Division of concerns...modularization
+- A screenshot to make it even clearer was included
