@@ -1,6 +1,6 @@
 Participants -
 Justice Ogbonna - ejo36@drexel.edu
-Pedro           - ps622@drexel (warmup only)
+Pedro           - ps622@drexel (warmup class only)
 
 There are three classes -
 1) Main - control center of program, the conductor
@@ -12,4 +12,7 @@ The URLs required to run the program has already been supplied, so the program t
 Hence - jdk-1.6 and above the java-json libraries are required to run the program
 
 The extra-credit assignment is located in the web folder, in index.html
+can be seen at http://art.cs.drexel.edu/~ejo36/weather/web
+            or https://www.cs.drexel.edu/~ejo36/weather.html
+
 I couldn't successfully implement the query part (at the time of this writing)

@@ -1,0 +1,31 @@
+
+Name:
+Ogbonna Eberechukwu
+
+Program Description:
+A program to get user location using auto ip and print the location,
+then using their location information, the program would fetch and print the hourly weather forecast.
+It also contains a warm up exercise and a web page for the extra credit (though not complete)
+A README file contains more instructions of running the program
+
+Development Environment:
+The program is written in Java and include a build file - build.xml
+It was written and compiled using IntelliJ IDE and jdk-1.6 on Windows OS.
+
+Requirements:
+jdk-1.6 or above
+java json library
+
+Running and Testing:
+The program has been run successfully and tested on my windows machine.
+To run this program in any other machine, the build.properties file must be modified to reflect the location of the jdk
+
+The Lab:
+Was a good way to familiarize myself with handling http requests in java
+At some point, I was confused on what libraries to use, org.json, or org.json.simple or javax.json etc
+The extra-credit gave me some headache though - spent an entire weekend on it
+
+Comments:
+Specific comments on which libraries to use
+
+
